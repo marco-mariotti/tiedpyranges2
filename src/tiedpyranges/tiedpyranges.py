@@ -1,6 +1,6 @@
 import os, pyranges, pandas,  pyfaidx
 
-#__all__=['get_faidx_handler', 'pyranges']
+__all__=['get_faidx_handler', 'pyranges', 'cut', 'extend', 'get_sequence']
 
 ########################################################
 ############ General methods
