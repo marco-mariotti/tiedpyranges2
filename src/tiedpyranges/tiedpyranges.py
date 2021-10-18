@@ -145,7 +145,7 @@ def cut(self, start=0, length=None, end=None, by=None, is_sorted=False):
     |            1 | +            |        40 |        60 | t1              |
     |            2 | -            |        30 |        39 | t2              |
     |            2 | -            |         2 |        13 | t2              |
-    |            3 | +            |       140 |       150 | t3              |
+    |            3 | +            |       140 |       155 | t3              |
     +--------------+--------------+-----------+-----------+-----------------+
     Stranded PyRanges object has 4 rows and 5 columns from 3 chromosomes.
     For printing, the PyRanges was sorted on Chromosome and Stra
