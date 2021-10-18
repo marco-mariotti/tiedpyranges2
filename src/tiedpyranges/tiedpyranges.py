@@ -378,7 +378,10 @@ def _cut_pyranges(p,  start=0,  length=None, end=None, from_end=[False,False]):
     If length is None -> all there is
     If from_end:   start=1 corresponds to python [-1] etc
     """
-    strand=p.Strand.at[0]
+    # if not p.shape[0]:
+    #     return pandas.DataFrame()
+    
+    strand=p.Strand.iat[0]
     if not strand in '+-':
         raise Exception(f"cut ERROR pyranges must be stranded! {strand}" )
 
@@ -395,12 +398,14 @@ def _cut_pyranges(p,  start=0,  length=None, end=None, from_end=[False,False]):
     if length is None and end is None:
         length=totlen
     if from_end[0]:
-        start=totlen-start
+        start=max( [totlen-start, 0] )
     if not end is None and from_end[1]:
         end=totlen-end
     if end is None:
         end=start+length
     #########
+
+    #print(f' start={start}    end={end}   totlen={totlen}')
 
     if    strand=='+':
         p['_dst']=( p._lengs + start - p._cumlen ).clip(lower=0)
